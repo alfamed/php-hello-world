@@ -8,10 +8,10 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     cleanCSS = require('gulp-clean-css'),
     browserSync = require("browser-sync"),
+    connect = require('gulp-connect-php'),
     reload = browserSync.reload,
     bower = require('gulp-bower'),
     mainBowerFiles = require('main-bower-files'),
-    codeStylish = require('jshint-stylish'),
     rimraf = require('rimraf'),
     jshint = require("gulp-jshint");
 
@@ -20,7 +20,7 @@ var path = {
         html: 'build/',
         js: 'build/js/',
         css: 'build/css/',
-        lib: 'build/lib',
+        lib: 'build/lib'
     },
     src: {
         html: 'src/*.html',
@@ -35,15 +35,6 @@ var path = {
         style: 'src/style/**/*.scss'
     },
     clean: './build'
-};
-
-var config = {
-    server: {
-        baseDir: "./build"
-    },
-    host: 'localhost',
-    port: 7000,
-    logPrefix: "php-hello-world"
 };
 
 gulp.task('html:build', function () {
@@ -119,8 +110,17 @@ gulp.task('watch', function(){
     });
 });
 
-gulp.task('webserver', function () {
-    browserSync(config);
+gulp.task('php', function() {
+    connect.server({ base: 'build', port: 8010, keepalive: true});
+});
+
+gulp.task('webserver',['php'], function() {
+    browserSync({
+        proxy: '127.0.0.1:8010',
+        port: 8080,
+        open: true,
+        notify: false
+    });
 });
 
 gulp.task('clean', function (cb) {

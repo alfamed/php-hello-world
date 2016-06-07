@@ -1,5 +1,5 @@
 $content-width: 500px;
-
+$contentColor: darkblue;
 h1 {
   text-align: center;
 }
@@ -8,4 +8,5 @@ h1 {
   margin: 0 auto;
   max-width: $content-width;
   text-align: justify;
+  color: $contentColor;
 }
