@@ -1,0 +1,11 @@
+$content-width: 500px;
+
+h1 {
+  text-align: center;
+}
+
+#content {
+  margin: 0 auto;
+  max-width: $content-width;
+  text-align: justify;
+}
