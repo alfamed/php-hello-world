@@ -1,7 +1,6 @@
 language: node_js
 notifications:
   email: false
-  slack: lumident:Kkpxv0P1EHFvumqsHHfxKLv2
 node_js:
   - "4.2"
 deploy:
@@ -9,7 +8,7 @@ deploy:
   api_key:
     secure: "26f01ce9-f060-47ec-b7f3-cb1a58438559"
 before_script:
-  - npm i
+  - npm install
   - sudo apt-get install -y tree
   - bower i
 script:
