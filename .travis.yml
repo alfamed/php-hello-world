@@ -10,7 +10,7 @@ deploy:
     secure: "26f01ce9-f060-47ec-b7f3-cb1a58438559"
 before_script:
   - sudo apt-get install -y tree
-  - gulp bower:install
+  - bower i
 script:
   - gulp build
   - tree build
