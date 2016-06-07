@@ -9,6 +9,7 @@ deploy:
   api_key:
     secure: "26f01ce9-f060-47ec-b7f3-cb1a58438559"
 before_script:
+  - npm i
   - sudo apt-get install -y tree
   - bower i
 script:
