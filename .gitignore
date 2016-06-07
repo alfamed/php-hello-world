@@ -6,7 +6,8 @@ build
 components
 coverage
 *.orig
-.idea/
+.idea
+.idea/vcs.xml
 .idea/*/**
 sandbox
 test/out-fixtures/*
